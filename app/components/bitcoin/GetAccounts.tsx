@@ -50,7 +50,6 @@ export function GetAccounts() {
           }
 
           if (isSuccess) {
-            console.log(data);
             return (
               <div>
                 <p>{data.length} accounts found</p>

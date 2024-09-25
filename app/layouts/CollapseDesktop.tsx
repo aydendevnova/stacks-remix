@@ -1,9 +1,21 @@
 import { useState } from "react";
-import { Link, useLocation } from "@remix-run/react";
-import { Bitcoin, FileStack, Home, Wallet, Menu } from "lucide-react";
+import { json, Link, useFetcher, useLocation } from "@remix-run/react";
+import { Bitcoin, FileStack, Home, Wallet, Menu, User2 } from "lucide-react";
 
 import { Button } from "~/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "~/components/ui/sheet";
+import { useLoaderData } from "@remix-run/react";
+import { LoaderFunction } from "@remix-run/node";
+
+type LoaderData = {
+  user: string | null;
+};
+
+export const loader: LoaderFunction = async ({ request }) => {
+  // Remove the server-side session handling
+  // We'll assume the user data is passed from a parent component or context
+  return json<LoaderData>({ user: null });
+};
 
 export function CollapseDesktop({ children }: React.PropsWithChildren<{}>) {
   const location = useLocation();

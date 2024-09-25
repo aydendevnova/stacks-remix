@@ -2,6 +2,7 @@ import { Buffer } from "buffer";
 
 globalThis.Buffer = Buffer;
 import {
+  json,
   Links,
   Meta,
   Outlet,
@@ -15,6 +16,7 @@ import stylesheet from "~/tailwind.css?url";
 
 import { CollapseDesktop } from "./layouts/CollapseDesktop";
 import { AppProviders } from "./hooks/app-providers";
+import { getSession } from "./utils/session.server";
 
 export const links: LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
